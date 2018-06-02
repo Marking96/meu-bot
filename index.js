@@ -4,6 +4,7 @@ const cheerio = require('cheerio');
 const TOKEN = require('./src/Token'); // Inseri seu token
 const bot = new TelegramBot(TOKEN, { polling: true})
 const URL_BASE = `https://www.google.com.br/search?q=`;
+const URL_IMAGE = `http://3.bp.blogspot.com/-Y5qrUPXZEwU/WvjY0OJk9lI/AAAAAAAADR4/CxkZ7NSD3uMGhlC8amcuP0-koH68Ab1FQCK4BGAYYCw/s1600/PostersIMAXHD.png`
 /*
 const from = { 
       id: Number,
@@ -63,3 +64,8 @@ const sendGoogle = ( msg, match ) =>
       .catch( log( `Error: `) )
 
 bot.onText( /\/google (.*)/, sendGoogle )
+
+//Enviando mensagem
+bot.onText( /\/Foto/, (msg) => {
+  bot.sendPhoto(msg.chat.id, URL_IMAGE)
+});
